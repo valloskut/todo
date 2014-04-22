@@ -41,3 +41,8 @@ gem 'spring',        group: :development
 gem 'angularjs-rails'
 gem 'devise'
 gem 'quiet_assets'
+
+gem 'rspec-rails', group: [:development, :test]
+gem 'factory_girl_rails', group: [:development, :test]
+gem 'database_cleaner', group: :test
+gem 'launchy', group: :test

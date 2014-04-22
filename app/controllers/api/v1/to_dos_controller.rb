@@ -5,8 +5,12 @@ class Api::V1::ToDosController < Api::V1::BaseController
   end
 
   def show
-    to_do = current_user.to_dos.find(params[:id])
-    respond_with to_do
+    to_do = current_user.to_dos.find_by_id(params[:id])
+    if to_do.present?
+      respond_with to_do
+    else
+      respond_with error: 'ToDo not found'
+    end
   end
 
   def create
