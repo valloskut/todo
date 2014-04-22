@@ -1,0 +1,1 @@
+json.(@to_do, :id, :title, :priority, :due_date, :completed)

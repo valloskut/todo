@@ -1,0 +1,1 @@
+json.array! @to_dos, :id, :title, :priority, :due_date, :completed
