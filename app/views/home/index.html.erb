@@ -1,6 +1,12 @@
 <%- unless signed_in? %>
-You need to sign in or sign up
+  <div class="jumbotron text-center">
+    You need to
+    <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary' %>
+    or
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
+    before continuing
+  </div>
 <%- else %>
-You are signed in
+  <%= render 'todos' %>
 <%- end %>
 

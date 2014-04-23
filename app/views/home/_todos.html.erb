@@ -1,0 +1,13 @@
+<div ng-controller="ToDosCtrl">
+  <h2>My ToDo List</h2>
+
+
+  <%= render partial: 'todo', locals: {todo: 'newTodo'} %>
+
+  <div id="todos">
+    <div ng-repeat="todo in todos">
+      <%= render partial: 'todo', locals: {todo: 'todo'} %>
+    </div>
+  </div>
+
+</div>
