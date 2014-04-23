@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require angular
 //= require angular-resource
+//= require ui-bootstrap-tpls-0.10.0.min
 //= require app
 //= require_tree ./angularjs
 //= require_tree .
