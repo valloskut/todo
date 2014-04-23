@@ -1,0 +1,47 @@
+<h2>User Information</h2>
+<p> To be able to connect to this application via API you need to be able to supply following information:</p>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">E-mail:</label>
+
+    <div class="input-group col-sm-4">
+      <input type="text" class="form-control" id="email" name="email" value="<%= current_user.email %>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="token" class="col-sm-2 control-label">Authentication token:</label>
+
+    <div class="input-group col-sm-4">
+      <input type="password" class="form-control" id="token" name="token" value="<%= current_user.authentication_token %>">
+
+      <div class="input-group-btn">
+        <button id="reveal" type="submit" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+<em class="col-sm-offset-2 col-sm-4">hover an eye button to see the token</em>
+</form>
+<br/>
+<br/>
+<p>There are two methods for providing this information:</p>
+<ul>
+  <li>provide information as params in url</li>
+  <li>provide information as part of request header</li>
+</ul>
+<p>Above methods could be combined, for example e-mail could be provided as url param, and authenticity token could be a part of request header</p>
+
+<h2>API Endpoints</h2>
+<p>There are a few methods available at the moment:</p>
+<h4>GET '/api/v1/to_dos'</h4>
+<p>returns an array of user's todo items </p>
+<h4>GET '/api/v1/to_dos/:id'</h4>
+<p>returns a single user's todo item with provided :id </p>
+<h4>POST '/api/v1/to_dos'</h4>
+<p>creates a new user's todo item </p>
+<em>required: 'title':string; optional: 'priority':integer, 'due_date':date, 'completed':boolean </em>
+<h4>PUT '/api/v1/to_dos/:id'</h4>
+<p>updates user's todo item</p>
+<em>required: 'title':string; optional: 'priority':integer, 'due_date':date, 'completed':boolean </em>
+<h4>DELETE '/api/v1/to_dos/:id'</h4>
+<p>deletes user's todo item with provided :id</p>

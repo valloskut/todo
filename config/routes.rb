@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  root "home#index"
+  root 'home#index'
+  get '/api' => 'home#api'
   devise_for :users
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-      resources :to_dos
+      resources :to_dos, except: [:new, :edit]
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
