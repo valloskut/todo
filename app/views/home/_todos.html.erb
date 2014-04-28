@@ -2,11 +2,12 @@
   <h2>My ToDo List</h2>
 
 
-  <%= render partial: 'todo', locals: {todo: 'newTodo'} %>
+  <div todo ng-model="newTodo" new="true"></div>
 
   <div id="todos">
     <div ng-repeat="todo in todos">
-      <%= render partial: 'todo', locals: {todo: 'todo'} %>
+      <div todo ng-model="todo"></div>
+
     </div>
   </div>
 

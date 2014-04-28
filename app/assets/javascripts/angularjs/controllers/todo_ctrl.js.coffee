@@ -18,7 +18,7 @@ App.controller 'ToDosCtrl', ['$scope', 'Todo', ($scope, Todo) ->
     $scope.newTodo.opened = false
     todo.opened = true
 
-  $scope.checkRequirements = (todo) ->
+  $scope.checkTodo = (todo) ->
     title_length = (todo.title.length == 0)
     title_length
 ]
