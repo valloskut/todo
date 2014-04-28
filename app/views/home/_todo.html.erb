@@ -8,7 +8,7 @@
       <i class="glyphicon glyphicon-ok-circle" ng-if="!<%= todo %>.completed"></i>
       <i class="glyphicon glyphicon-remove-circle" ng-if="<%= todo %>.completed"></i>
     </button>
-    <input id="new-title" type="text" class="form-control" ng-class="{strike: <%= todo %>.completed}" ng-model="<%= todo %>.title" placeholder="ToDo title" required="true"/>
+    <input type="text" class="title form-control" ng-class="{strike: <%= todo %>.completed}" ng-model="<%= todo %>.title" placeholder="ToDo title" required="true"/>
     <select class="form-control" ng-model="<%= todo %>.priority">
       <option value="" disabled selected style="display: none;">Priority</option>
       <option value="null" disabled style="display: none;">Priority</option>
@@ -28,9 +28,9 @@
               </span>
     </div>
     <% if todo == 'newTodo' %>
-      <button ooltip-placement="right" tooltip="Add" class="form-control btn btn-success" ng-click="addTodo(<%= todo %>)"><i class="glyphicon glyphicon-plus"></i></button>
+      <button ooltip-placement="right" tooltip="Add" class="form-control btn btn-success" ng-click="addTodo(<%= todo %>)" ng-disabled="checkRequirements(<%= todo %>)"><i class="glyphicon glyphicon-plus"></i></button>
     <% else %>
-      <button tooltip-placement="top" tooltip="Save" class="form-control btn btn-primary" ng-click="saveTodo(<%= todo %>)"><i class="glyphicon glyphicon-floppy-save"></i></button>
+      <button tooltip-placement="top" tooltip="Save" class="form-control btn btn-primary" ng-click="saveTodo(<%= todo %>)" ng-disabled="checkRequirements(<%= todo %>)"><i class="glyphicon glyphicon-floppy-save"></i></button>
       <button tooltip-placement="right" tooltip="Delete" class="form-control btn btn-danger" ng-click="deleteTodo(<%= todo %>)"><i class="glyphicon glyphicon-remove"></i></button>
     <% end %>
   </div>

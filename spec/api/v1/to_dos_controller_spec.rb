@@ -32,7 +32,7 @@ describe "ToDos API", type: :api do
       end
     end
   end
-  describe '#index' do
+  describe "GET '/api/v1/to_dos'" do
     it 'returns todos owned by currently authenticated user only' do
       3.times { user.to_dos << create(:to_do) }
       user2 = create :user
@@ -42,7 +42,7 @@ describe "ToDos API", type: :api do
       expect(json.map { |todo| todo['title'] }.uniq).to eq(user.to_dos.map(&:title))
     end
   end
-  describe '#show' do
+  describe "GET '/api/v1/to_dos/:id'" do
     it 'returns a todo owned by currently authenticated user only' do
       get "/api/v1/to_dos/#{todo.id}", valid_params(user)
       expect(user.to_do_ids).to include(json['id'])
@@ -58,7 +58,7 @@ describe "ToDos API", type: :api do
       expect(response.status).to eq(404)
     end
   end
-  describe '#create' do
+  describe "POST '/api/v1/to_dos'" do
     it 'creates a todo with valid todo params' do
       todo
       count = user.to_dos.count
@@ -71,7 +71,7 @@ describe "ToDos API", type: :api do
       expect(response.status).to eq(422)
     end
   end
-  describe '#update' do
+  describe "PUT '/api/v1/to_dos/:id'" do
     it 'updates a todo with valid todo params' do
       title = todo.title
       put "/api/v1/to_dos/#{todo.id}", valid_params(user).merge(to_do: {title: 'Just updated'})
@@ -90,7 +90,7 @@ describe "ToDos API", type: :api do
       expect(response.status).to eq(404)
     end
   end
-  describe '#destroy' do
+  describe "DELETE '/api/v1/to_dos/:id'" do
     it 'deletes a todo' do
       todo #
       count = user.to_dos.count

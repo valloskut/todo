@@ -2,13 +2,12 @@ App.controller 'ToDosCtrl', ['$scope', 'Todo', ($scope, Todo) ->
   $scope.todos = []
   $scope.newTodo = {}
   $scope.today = new Date()
-  $scope.priorities = ['Highest', 'Very High', 'High', 'Above Average', 'Average', 'Below Average', 'Low', 'Very Low', 'Lowest']
 
   Todo.query {}, (data, headers) ->
     $scope.todos = data
 
   $scope.addTodo = ->
-    window.alert 'add'
+    console.log 'add'
 
   $scope.open = ($event, todo) ->
     $event.preventDefault()
@@ -19,5 +18,7 @@ App.controller 'ToDosCtrl', ['$scope', 'Todo', ($scope, Todo) ->
     $scope.newTodo.opened = false
     todo.opened = true
 
-
+  $scope.checkRequirements = (todo) ->
+    title_length = (todo.title.length == 0)
+    title_length
 ]
