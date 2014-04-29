@@ -1,8 +1,4 @@
-<div class="pull-right">
-  {{ todo }} opened:{{opened}}
-</div>
-<br/>
-<form id="new-todo" class="form-inline">
+<form id="{{todoID(todo)}}" class="form-inline">
   <div class="form-group">
     <button tooltip-placement="left" tooltip="Check" type="button" class="form-control btn" ng-class="todo.completed ? 'btn-warning' : 'btn-success'" btn-checkbox ng-model="todo.completed">
       <i class="glyphicon glyphicon-ok-circle" ng-if="!todo.completed"></i>
@@ -27,8 +23,8 @@
                 </button>
               </span>
     </div>
-      <button tooltip-placement="right" tooltip="Add" class="form-control btn btn-success" ng-click="addTodo(todo)" ng-disabled="checkTodo(todo)" ng-if="new"><i class="glyphicon glyphicon-plus"></i></button>
-      <button tooltip-placement="top" tooltip="Save" class="form-control btn btn-primary" ng-click="saveTodo(todo)" ng-disabled="checkTodo(todo)" ng-if="!new"><i class="glyphicon glyphicon-floppy-save"></i></button>
+      <button tooltip-placement="right" tooltip="Add" class="form-control btn btn-success" ng-click="addTodo(todo)" ng-if="new" ng-disabled="checkTodo(todo)"><i class="glyphicon glyphicon-plus"></i></button>
+      <button tooltip-placement="top" tooltip="Save" class="form-control btn btn-primary" ng-click="saveTodo(todo)" ng-if="!new" ng-disabled="checkTodo(todo)"><i class="glyphicon glyphicon-floppy-save"></i></button>
       <button tooltip-placement="right" tooltip="Delete" class="form-control btn btn-danger" ng-click="deleteTodo(todo)" ng-if="!new"><i class="glyphicon glyphicon-remove"></i></button>
   </div>
 </form>

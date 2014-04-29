@@ -3,6 +3,6 @@ App.factory 'Todo', ['$resource', ($resource) ->
     {
       id: '@id',
     }, {
-
+    update: {method: 'PUT'}
     }
 ]
