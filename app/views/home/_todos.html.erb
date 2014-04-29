@@ -1,13 +1,19 @@
 <div ng-controller="ToDosCtrl">
   <h2>My ToDo List</h2>
 
+  <h3>New ToDo</h3>
 
   <div todo ng-model="newTodo" new="true"></div>
 
-  <div id="todos" ng-repeat="todo in todos">
-      <div todo ng-model="todo"></div>
+  <h3>ToDos in progress</h3>
+  <div id="todos" ng-repeat="todo in todos | filter: uncompleted">
+    <div todo ng-model="todo"></div>
 
-    </div>
   </div>
 
+  <h3>Completed ToDo</h3>
+  <div id="todos" ng-repeat="todo in todos | filter: {completed: true}">
+    <div todo ng-model="todo"></div>
+
+  </div>
 </div>
