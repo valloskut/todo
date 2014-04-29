@@ -1,12 +1,16 @@
-App.directive 'todo', ->
+App.directive 'todoItem', ->
   restrict: "A"
   templateUrl: '/assets/angularjs/directives/templates/todo.html'
   scope:
-    todo: '=ngModel'
+    todo: '='
     new: '='
-  link: (scope, element, attrs) ->
+  link: ($scope, element, attrs) ->
     element.addClass 'todo'
+
   controller: ($scope, Todo) ->
+    $scope.change = ->
+      $scope.changed = true
+
     $scope.todoID = (todo) ->
       if todo.id then todo.id else 'new-todo'
 
@@ -23,6 +27,7 @@ App.directive 'todo', ->
     $scope.saveTodo = (todo) ->
       Todo.update {id: todo.id, to_do: todo}, (success) ->
         $scope.$emit 'todo_saved', todo
+        $scope.changed = false
       , (error) ->
         console.log error.data.error
 
