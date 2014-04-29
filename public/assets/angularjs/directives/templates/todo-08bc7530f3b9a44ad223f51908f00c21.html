@@ -1,0 +1,30 @@
+<form id="{{todoID(todo)}}" class="form-inline">
+  <div class="form-group">
+    <button tooltip-placement="left" tooltip="Check" type="button" class="form-control btn" ng-class="todo.completed ? 'btn-warning' : 'btn-success'" btn-checkbox ng-model="todo.completed" ng-change="change()">
+      <i class="glyphicon glyphicon-ok-circle" ng-if="!todo.completed"></i>
+      <i class="glyphicon glyphicon-remove-circle" ng-if="todo.completed"></i>
+    </button>
+    <input type="text" class="title form-control" ng-class="{strike: todo.completed}" ng-model="todo.title" placeholder="{{placeholder}}" required="true" ng-change="change()" />
+    <select class="priority form-control" ng-model="todo.priority" ng-change="change()">
+      <option value="" disabled selected style="display: none;">Priority</option>
+      <option value="null" disabled style="display: none;">Priority</option>
+      <option value="1">Highest</option>
+      <option value="2">High</option>
+      <option value="3">Average</option>
+      <option value="4">Low</option>
+      <option value="5">Lowest</option>
+    </select>
+
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Due date" ng-model="todo.due_date" datepicker-popup="dd-MMMM-yyyy" show-button-bar="false" min="today" is-open="opened" close-text="Close" ng-change="change()"/>
+              <span class="input-group-btn">
+                <button class="btn btn-default datepicker">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+    </div>
+      <button tooltip-placement="right" tooltip="Add" class="form-control btn btn-success" ng-click="addTodo(todo)" ng-if="new" ng-disabled="checkTodo(todo)"><i class="glyphicon glyphicon-plus"></i></button>
+      <button tooltip-placement="top" tooltip="Save" class="form-control btn btn-primary" ng-click="saveTodo(todo)" ng-if="!new && changed" ng-disabled="checkTodo(todo)"><i class="glyphicon glyphicon-floppy-save"></i></button>
+      <button tooltip-placement="right" tooltip="Delete" class="form-control btn btn-danger" ng-click="deleteTodo(todo)" ng-if="!new"><i class="glyphicon glyphicon-remove"></i></button>
+  </div>
+</form>
