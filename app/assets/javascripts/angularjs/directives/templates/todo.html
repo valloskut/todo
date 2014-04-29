@@ -5,7 +5,7 @@
       <i class="glyphicon glyphicon-remove-circle" ng-if="todo.completed"></i>
     </button>
     <input type="text" class="title form-control" ng-class="{strike: todo.completed}" ng-model="todo.title" placeholder="{{placeholder}}" required="true" ng-change="change()" />
-    <select class="form-control" ng-model="todo.priority" ng-change="change()">
+    <select class="priority form-control" ng-model="todo.priority" ng-change="change()">
       <option value="" disabled selected style="display: none;">Priority</option>
       <option value="null" disabled style="display: none;">Priority</option>
       <option value="1">Highest</option>

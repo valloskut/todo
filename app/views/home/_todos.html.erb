@@ -3,7 +3,31 @@
 
   <div todo-item todo="newTodo" placeholder="Add new Todo here" new="true"></div>
   <hr/>
-  <div id="todos" ng-repeat="todo in todos">
+  <div id="sort" class="form-inline">
+    <div class="form-group">
+      <button ng-click="orderBy('completed')" tooltip-placement="top" tooltip="sort by completed" class="form-control">
+        <span ng-if="!order.match('completed')" class="glyphicon glyphicon-sort"></span>
+        <span ng-if="order == 'completed'" class="glyphicon glyphicon-remove-circle"></span>
+        <span ng-if="order == '-completed'" class="glyphicon glyphicon-ok-circle"></span>
+      </button>
+      <button ng-click="orderBy('title')" tooltip-placement="top" tooltip="sort by title" class="title form-control">Title
+        <span ng-if="!order.match('title')" class="glyphicon glyphicon-sort"></span>
+        <span ng-if="order == 'title'" class="glyphicon glyphicon-sort-by-alphabet"></span>
+        <span ng-if="order == '-title'" class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+      </button>
+      <button ng-click="orderBy('priority')" tooltip-placement="top" tooltip="sort by priority" class="priority form-control">Priority
+        <span ng-if="!order.match('priority')" class="glyphicon glyphicon-sort"></span>
+        <span ng-if="order == 'priority'" class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+        <span ng-if="order == '-priority'" class="glyphicon glyphicon-sort-by-attributes"></span>
+      </button>
+      <button ng-click="orderBy('due_date')" tooltip-placement="top" tooltip="sort by due date" class="due-date form-control">Due
+        <span ng-if="!order.match('due_date')" class="glyphicon glyphicon-sort"></span>
+        <span ng-if="order == 'due_date'" class="glyphicon glyphicon-sort-by-order"></span>
+        <span ng-if="order == '-due_date'" class="glyphicon glyphicon-sort-by-order-alt"></span>
+      </button>
+    </div>
+  </div>
+  <div id="todos" ng-repeat="todo in todos | orderBy : order ">
     <div todo-item todo="todo"></div>
   </div>
 

@@ -2,9 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.form-inline .form-group input {
-  &.title {
-    width: 300px;
+.form-inline .form-group {
+  input, button, select {
+    &.title {
+      width: 300px;
+    }
+    &.priority {
+      width: 120px;
+    }
+    &.due-date {
+      width: 236px;
+    }
+
   }
 }
 
@@ -13,5 +22,11 @@
 }
 
 .todo {
-  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+#sort {
+  button {
+    text-align: center;
+  }
 }

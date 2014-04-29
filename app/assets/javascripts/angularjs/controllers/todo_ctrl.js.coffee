@@ -17,6 +17,15 @@ App.controller 'ToDosCtrl', ['$scope', 'Todo', ($scope, Todo) ->
     console.log "todo '#{todo.title}' saved successfully"
   $scope.$on 'todo_deleted', (event, todo) ->
     $scope.todos.splice($scope.todos.indexOf(todo), 1)
+
+  $scope.orderBy = (order) ->
+    if $scope.order != order || $scope.order == "-#{order}"
+      $scope.order = order
+    else
+      $scope.order = "-#{order}"
+
+
   # Initial todos
   $scope.loadTodos()
+  $scope.order = 'id'
 ]
