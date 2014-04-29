@@ -3,7 +3,7 @@
 
   <div todo-item todo="newTodo" placeholder="Add new Todo here" new="true"></div>
   <hr/>
-  <div id="sort" class="form-inline">
+  <div id="sort" class="form-inline" ng-show="todos">
     <div class="form-group">
       <button ng-click="orderBy('completed')" tooltip-placement="top" tooltip="sort by completed" class="form-control">
         <span ng-if="!order.match('completed')" class="glyphicon glyphicon-sort"></span>

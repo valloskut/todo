@@ -40,6 +40,7 @@ gem 'spring',        group: :development
 
 gem 'angularjs-rails'
 gem 'devise'
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
 gem 'quiet_assets'
 
 gem 'rspec-rails', group: [:development, :test]
