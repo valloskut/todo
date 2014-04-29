@@ -3,7 +3,14 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
+  # to display an API key
   $('#reveal').hover ->
     $('#token').attr type: 'text'
   , ->
     $('#token').attr type: 'password'
+
+  # to avoid issues with multiple datepickers
+  $('html').on 'click', 'button.datepicker', (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    $(this).parent().parent().find('input').focus().click()

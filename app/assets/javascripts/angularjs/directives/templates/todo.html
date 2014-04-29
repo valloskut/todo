@@ -1,5 +1,5 @@
 <div class="pull-right">
-  {{ todo }}
+  {{ todo }} opened:{{opened}}
 </div>
 <br/>
 <form id="new-todo" class="form-inline">
@@ -20,9 +20,9 @@
     </select>
 
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Due date" ng-model="todo.due_date" datepicker-popup="dd-MMMM-yyyy" show-button-bar="false" min="today" is-open="todo.opened" close-text="Close"/>
+      <input type="text" class="form-control" placeholder="Due date" ng-model="todo.due_date" datepicker-popup="dd-MMMM-yyyy" show-button-bar="false" min="today" is-open="opened" close-text="Close"/>
               <span class="input-group-btn">
-                <button class="btn btn-default" ng-click="open($event, todo)">
+                <button class="btn btn-default datepicker">
                   <i class="glyphicon glyphicon-calendar"></i>
                 </button>
               </span>
