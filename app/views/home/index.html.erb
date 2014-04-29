@@ -1,4 +1,5 @@
 <%- unless signed_in? %>
+  <div class="text-center"><%= image_tag 'todo_screenshot.png' %></div>
   <div class="jumbotron text-center">
     You need to
     <%= link_to 'Sign In', new_user_session_path, class: 'btn btn-primary' %>
