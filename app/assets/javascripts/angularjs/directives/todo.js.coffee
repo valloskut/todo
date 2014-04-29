@@ -6,6 +6,7 @@ App.directive 'todoItem', ->
     new: '='
   link: ($scope, element, attrs) ->
     element.addClass 'todo'
+    $scope.placeholder = attrs.placeholder || 'Todo title'
 
   controller: ($scope, Todo) ->
     $scope.change = ->

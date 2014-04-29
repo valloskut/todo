@@ -1,8 +1,7 @@
 <div ng-controller="ToDosCtrl">
-  <h2>My ToDo List</h2>
+  <h2>My Todo List</h2>
 
-
-  <div todo-item todo="newTodo" new="true"></div>
+  <div todo-item todo="newTodo" placeholder="Add new Todo here" new="true"></div>
   <hr/>
   <div id="todos" ng-repeat="todo in todos">
     <div todo-item todo="todo"></div>

@@ -2,12 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.title {
-  width: 300px;
+.form-inline .form-group input {
+  &.title {
+    width: 300px;
+  }
 }
+
 .strike {
   text-decoration: line-through;
 }
+
 .todo {
   padding-bottom: 5px;
 }
