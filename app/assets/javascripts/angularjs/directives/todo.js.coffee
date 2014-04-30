@@ -20,7 +20,7 @@ App.directive 'todoItem', ->
       !check
 
     $scope.addTodo = (todo) ->
-      Todo.save todo, (success) ->
+      Todo.save {to_do: todo}, (success) ->
         $scope.$emit 'todo_added', success
       , (error) ->
         console.log error.data.error
